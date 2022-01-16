@@ -9,11 +9,12 @@ const forecast = (lat, long, callback) => {
         } else if (body.error) {
             callback('Bad coordinates', undefined)
         } else {
-            callback(undefined, {
-                location: body.location.name,
-                forecast: body.current.weather_descriptions[0],
+            callback(undefined, 
+                'In ' + body.location.name + ', it is currently ' + body.current.temperature + 
+                ' degrees and ' + body.current.weather_descriptions[0] + '. There will be ' + 
+                body.current.precip + ' mm of precipitation. It feels like ' + body.current.feelslike + ' degrees.'
                 
-            })
+            )
         }
     })
 }
